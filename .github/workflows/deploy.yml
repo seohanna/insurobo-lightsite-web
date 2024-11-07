@@ -1,0 +1,49 @@
+name: DEPLOY
+on:
+    workflow_call:
+        inputs:
+            environment:
+                description: 'deploy'
+                required: true
+                type: string
+jobs:
+    Build:
+        runs-on: ubuntu-latest
+        environment: ${{ inputs.environment }}
+        steps:
+            - uses: actions/checkout@v4
+            - name: .env setting
+              run: |
+                touch .env
+                echo "PORT=${{ vars.SERVICE_PORT }}" >> .env
+                echo "REACT_APP_API_URL=${{ vars.REACT_APP_API_URL }}" >> .env
+                echo "REACT_APP_INSUROBO_PLUS_HOST=${{ vars.REACT_APP_INSUROBO_PLUS_HOST }}" >> .env
+                echo "REACT_APP_HOST=${{ vars.REACT_APP_HOST }}" >> .env
+                # echo "INSUROBOPLUSDB=${{ secrets.INSUROBOPLUSDB }}" >> .env
+            - uses: actions/setup-node@v4
+              with:
+                node-version: 18
+            - run: |
+                npm i
+                npm run build
+            - name: Deploy 
+              uses: up9cloud/action-rsync@master # Hi Mona
+
+              env:
+                  SOURCE: ${{ vars.DEPLOY_SOURCE }}
+                  HOST: ${{ secrets.DEPLOY_IP }}
+                  KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+                # PASSWORD: ${{ secrets.DEPLOY_SSH_PASSWORD }} # it's less secure, using KEY instead
+                  TARGET: ${{ vars.DEPLOY_PATH }}
+                  USER: ${{ secrets.USER_NAME }}
+                  PORT: ${{ secrets.DEPLOY_PORT }}
+                  ARGS: ${{ vars.ARGS}}
+                  POST_SCRIPT: ${{ vars.DEPLOY_SCRIPT}}
+                # SSH_ARGS: ${{ vars.SSH_ARGS }}
+            # - name: executing remote ssh commands using password
+            #   uses: appleboy/ssh-action@v1.0.3
+            #   with:
+            #       host: ${{ secrets.DEPLOY_IP }}
+            #       username: ${{ secrets.USER_NAME }}
+            #       key: ${{ secrets.DEPLOY_SSH_KEY }}
+            #       port: ${{ secrets.DEPLOY_PORT }}

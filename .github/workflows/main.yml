@@ -1,0 +1,18 @@
+name: DEPLOY
+on:
+    workflow_call:
+        inputs:
+            environment:
+                description: 'product'
+                required: true
+                type: string
+    push:
+        branches:
+            - main
+jobs:
+    Build:
+        uses: ./.github/workflows/deploy.yml # use the main.yml workflow
+        # this line will transfer all secrets to main workflow
+        secrets: inherit
+        with:
+            environment: product

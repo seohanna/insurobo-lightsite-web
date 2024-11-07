@@ -1,0 +1,803 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "InsuroboPlus API",
+    "summary": "InsuroboPlus OpenAPI Schema",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/api/info/smallbiz_support_list": {
+      "get": {
+        "summary": "Get Tb Insu Extpblanc Info List",
+        "operationId": "get_tb_insu_extpblanc_info_list_api_info_smallbiz_support_list_get",
+        "parameters": [
+          {
+            "name": "searchCodeA",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "title": "Searchcodea"
+            }
+          },
+          {
+            "name": "searchDvsn",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "title": "Searchdvsn"
+            }
+          },
+          {
+            "name": "searchStr",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "title": "Searchstr"
+            }
+          },
+          {
+            "name": "lastIdx",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "integer" }, { "type": "null" }],
+              "title": "Lastidx"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": { "default": 1, "title": "Page" }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "schema": { "default": 10, "title": "Per Page" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TbInsuExtpblancInfoList"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/info/smallbiz_support_detail": {
+      "get": {
+        "summary": "Get Tb Insu Extpblanc Info",
+        "operationId": "get_tb_insu_extpblanc_info_api_info_smallbiz_support_detail_get",
+        "parameters": [
+          {
+            "name": "pblancseq",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "integer", "title": "Pblancseq" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TbInsuExtpblancInfo" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/info/citizen_safety_list": {
+      "get": {
+        "summary": "Get Tb Insu Ctzn Safe List",
+        "operationId": "get_tb_insu_ctzn_safe_list_api_info_citizen_safety_list_get",
+        "parameters": [
+          {
+            "name": "searchType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "title": "Searchtype"
+            }
+          },
+          {
+            "name": "searchDvsn",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "title": "Searchdvsn"
+            }
+          },
+          {
+            "name": "searchStr",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "title": "Searchstr"
+            }
+          },
+          {
+            "name": "lastIdx",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "integer" }, { "type": "null" }],
+              "title": "Lastidx"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": { "default": 1, "title": "Page" }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "schema": { "default": 10, "title": "Per Page" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TbInsuCtznSafeList" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/info/citizen_safety_list_detail": {
+      "get": {
+        "summary": "Get Tb Insu Ctzn Safe List",
+        "operationId": "get_tb_insu_ctzn_safe_list_api_info_citizen_safety_list_detail_get",
+        "parameters": [
+          {
+            "name": "idx",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "integer", "title": "Idx" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TbInsuCtznSafe" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/info/event_list": {
+      "get": {
+        "summary": "Get Tb Insu Event List",
+        "operationId": "get_tb_insu_event_list_api_info_event_list_get",
+        "parameters": [
+          {
+            "name": "lastIdx",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "integer" }, { "type": "null" }],
+              "title": "Lastidx"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": { "default": 1, "title": "Page" }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "schema": { "default": 10, "title": "Per Page" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TbInsuEventList" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/info/event_list_detail": {
+      "get": {
+        "summary": "Get Tb Insu Event List",
+        "operationId": "get_tb_insu_event_list_api_info_event_list_detail_get",
+        "parameters": [
+          {
+            "name": "eventidx",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "integer", "title": "Eventidx" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TbInsuEvent" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": { "$ref": "#/components/schemas/ValidationError" },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "TbInsuCtznSafe": {
+        "properties": {
+          "IDX": {
+            "anyOf": [{ "type": "integer" }, { "type": "null" }],
+            "title": "Idx",
+            "description": "순번"
+          },
+          "CTRD_NM": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Ctrd Nm",
+            "description": "시도"
+          },
+          "SIGNGU_NM": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Signgu Nm",
+            "description": "시군구"
+          },
+          "CMPNY_NM": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Cmpny Nm",
+            "description": "보험공제사명"
+          },
+          "SBSCRB_YEAR": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Sbscrb Year",
+            "description": "가입년도"
+          },
+          "GRNT_IEM": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Grnt Iem",
+            "description": "보장항목"
+          },
+          "LOCGOV_CHARGER_DEPT_NM": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Locgov Charger Dept Nm",
+            "description": "담당부서"
+          },
+          "SBSCRB_BGNDE": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Sbscrb Bgnde",
+            "description": "가입시작일자"
+          },
+          "SBSCRB_ENDDE": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Sbscrb Endde",
+            "description": "가입종료일자"
+          },
+          "LOCGOV_CHARGE_OFFM_TELNO": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Locgov Charge Offm Telno",
+            "description": "담당부서"
+          },
+          "CMPNY_TELNO": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Cmpny Telno",
+            "description": "보험공제사 전화번호"
+          },
+          "HMPG_URL": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Hmpg Url",
+            "description": "링크 URL"
+          },
+          "REG_ID": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Reg Id",
+            "description": "등록자ID"
+          },
+          "REG_DTTM": {
+            "anyOf": [
+              { "type": "string", "format": "date-time" },
+              { "type": "null" }
+            ],
+            "title": "Reg Dttm",
+            "description": "등록일"
+          }
+        },
+        "type": "object",
+        "required": [
+          "IDX",
+          "CTRD_NM",
+          "SIGNGU_NM",
+          "CMPNY_NM",
+          "SBSCRB_YEAR",
+          "GRNT_IEM",
+          "LOCGOV_CHARGER_DEPT_NM",
+          "SBSCRB_BGNDE",
+          "SBSCRB_ENDDE",
+          "LOCGOV_CHARGE_OFFM_TELNO",
+          "CMPNY_TELNO",
+          "HMPG_URL",
+          "REG_ID",
+          "REG_DTTM"
+        ],
+        "title": "TbInsuCtznSafe"
+      },
+      "TbInsuCtznSafeList": {
+        "properties": {
+          "page": { "type": "integer", "title": "Page" },
+          "per_page": { "type": "integer", "title": "Per Page" },
+          "total_count": { "type": "integer", "title": "Total Count" },
+          "items": {
+            "items": { "$ref": "#/components/schemas/TbInsuCtznSafe" },
+            "type": "array",
+            "title": "Items"
+          }
+        },
+        "type": "object",
+        "required": ["page", "per_page", "total_count", "items"],
+        "title": "TbInsuCtznSafeList"
+      },
+      "TbInsuEvent": {
+        "properties": {
+          "EVENT_IDX": {
+            "anyOf": [{ "type": "integer" }, { "type": "null" }],
+            "title": "Event Idx",
+            "description": "순번"
+          },
+          "TITIE": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Titie",
+            "description": "제목"
+          },
+          "START_YMD": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Start Ymd",
+            "description": "시작일자"
+          },
+          "END_YMD": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "End Ymd",
+            "description": "종료일자"
+          },
+          "CONTENT": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Content",
+            "description": "내용"
+          },
+          "FILE_ID": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "File Id",
+            "description": "파일ID"
+          },
+          "EXPSR_YN": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Expsr Yn",
+            "description": "노출여부"
+          },
+          "REGIST_ID": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Regist Id",
+            "description": "등록자ID"
+          },
+          "REGIST_DTTM": {
+            "anyOf": [
+              { "type": "string", "format": "date-time" },
+              { "type": "null" }
+            ],
+            "title": "Regist Dttm",
+            "description": "등록일시"
+          },
+          "UPD_ID": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Upd Id",
+            "description": "수정자ID"
+          },
+          "UPD_DTTM": {
+            "anyOf": [
+              { "type": "string", "format": "date-time" },
+              { "type": "null" }
+            ],
+            "title": "Upd Dttm",
+            "description": "수정일시"
+          }
+        },
+        "type": "object",
+        "required": [
+          "EVENT_IDX",
+          "TITIE",
+          "START_YMD",
+          "END_YMD",
+          "CONTENT",
+          "FILE_ID",
+          "EXPSR_YN",
+          "REGIST_ID",
+          "REGIST_DTTM",
+          "UPD_ID",
+          "UPD_DTTM"
+        ],
+        "title": "TbInsuEvent"
+      },
+      "TbInsuEventList": {
+        "properties": {
+          "page": { "type": "integer", "title": "Page" },
+          "per_page": { "type": "integer", "title": "Per Page" },
+          "total_count": { "type": "integer", "title": "Total Count" },
+          "items": {
+            "items": { "$ref": "#/components/schemas/TbInsuEvent" },
+            "type": "array",
+            "title": "Items"
+          }
+        },
+        "type": "object",
+        "required": ["page", "per_page", "total_count", "items"],
+        "title": "TbInsuEventList"
+      },
+      "TbInsuExtpblancInfo": {
+        "properties": {
+          "PBLANCSEQ": {
+            "anyOf": [{ "type": "integer" }, { "type": "null" }],
+            "title": "Pblancseq",
+            "description": "공고SEQ"
+          },
+          "CREATDT": {
+            "anyOf": [
+              { "type": "string", "format": "date-time" },
+              { "type": "null" }
+            ],
+            "title": "Creatdt",
+            "description": "공고등록일"
+          },
+          "PBLANCDTLURL": {
+            "type": "string",
+            "title": "Pblancdtlurl",
+            "description": "상세정보경로"
+          },
+          "PBLANCNM": {
+            "type": "string",
+            "title": "Pblancnm",
+            "description": "공고명"
+          },
+          "POLICYCNTS": {
+            "type": "string",
+            "title": "Policycnts",
+            "description": "사업개요"
+          },
+          "SPORTMG": {
+            "type": "string",
+            "title": "Sportmg",
+            "description": "지원규모"
+          },
+          "SPORTCNTS": {
+            "type": "string",
+            "title": "Sportcnts",
+            "description": "지원내용"
+          },
+          "SPORTTRGET": {
+            "type": "string",
+            "title": "Sporttrget",
+            "description": "지원대상"
+          },
+          "REQSTRCEPT": {
+            "type": "string",
+            "title": "Reqstrcept",
+            "description": "신청방법"
+          },
+          "SPORTINSTTNM": {
+            "type": "string",
+            "title": "Sportinsttnm",
+            "description": "지원기관명"
+          },
+          "SPORTINSTTCD": {
+            "type": "string",
+            "title": "Sportinsttcd",
+            "description": "지원기관코드"
+          },
+          "REFRNC": {
+            "type": "string",
+            "title": "Refrnc",
+            "description": "문의처"
+          },
+          "UPDDT": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Upddt",
+            "description": "공고등록일"
+          },
+          "PBLANCBGNDT": {
+            "type": "string",
+            "title": "Pblancbgndt",
+            "default": "신청시작일"
+          },
+          "PBLANCENDDT": {
+            "type": "string",
+            "title": "Pblancenddt",
+            "description": "신청마감일"
+          },
+          "PBLANCATTACH": {
+            "type": "string",
+            "title": "Pblancattach",
+            "description": "첨부파일URL"
+          },
+          "REQSTLINKINFO": {
+            "type": "string",
+            "title": "Reqstlinkinfo",
+            "description": "온라인  신청  URL"
+          },
+          "BIZTYPE": {
+            "type": "string",
+            "title": "Biztype",
+            "description": "사업유형"
+          },
+          "BIZTYPECD": {
+            "type": "string",
+            "title": "Biztypecd",
+            "description": "사업유형코드"
+          },
+          "SPORTTYPE": {
+            "type": "string",
+            "title": "Sporttype",
+            "description": "지원유형"
+          },
+          "SPORTTYPECD": {
+            "type": "string",
+            "title": "Sporttypecd",
+            "description": "지원유형코드"
+          },
+          "LIFECYCLDVSN": {
+            "type": "string",
+            "title": "Lifecycldvsn",
+            "description": "생애주기구분"
+          },
+          "LIFECYCLDVSNCD": {
+            "type": "string",
+            "title": "Lifecycldvsncd",
+            "description": "생애주기구분코드"
+          },
+          "AREANM": {
+            "type": "string",
+            "title": "Areanm",
+            "description": "지역명"
+          },
+          "AREACD": {
+            "type": "string",
+            "title": "Areacd",
+            "description": "지역코드"
+          },
+          "SALSAMT": {
+            "type": "string",
+            "title": "Salsamt",
+            "description": "매출액"
+          },
+          "SALSAMTCD": {
+            "type": "string",
+            "title": "Salsamtcd",
+            "description": "매출액코드"
+          },
+          "ABLBIZ": {
+            "type": "string",
+            "title": "Ablbiz",
+            "description": "업력"
+          },
+          "ABLBIZCD": {
+            "type": "string",
+            "title": "Ablbizcd",
+            "description": "업력코드"
+          },
+          "EMPLYCNT": {
+            "type": "string",
+            "title": "Emplycnt",
+            "description": "종업원수"
+          },
+          "EMPLYCNTCD": {
+            "type": "string",
+            "title": "Emplycntcd",
+            "description": "종업원수코드"
+          },
+          "CMPSCALE": {
+            "type": "string",
+            "title": "Cmpscale",
+            "description": "기업규모"
+          },
+          "CMPSCALECD": {
+            "type": "string",
+            "title": "Cmpscalecd",
+            "description": "기업규모코드"
+          },
+          "NEEDCRTFN": {
+            "type": "string",
+            "title": "Needcrtfn",
+            "description": "필요인증"
+          },
+          "NEEDCRTFNCD": {
+            "type": "string",
+            "title": "Needcrtfncd",
+            "description": "필요인증코드"
+          },
+          "INDUTY": {
+            "type": "string",
+            "title": "Induty",
+            "description": "업종"
+          },
+          "RPSNTAGE": {
+            "type": "string",
+            "title": "Rpsntage",
+            "description": "대표자  연령"
+          },
+          "REFNTNYN": {
+            "type": "string",
+            "title": "Refntnyn",
+            "description": "재창업여부"
+          },
+          "FNTNYN": {
+            "type": "string",
+            "title": "Fntnyn",
+            "description": "(예비)창업여부"
+          },
+          "FMLERPSNTYN": {
+            "type": "string",
+            "title": "Fmlerpsntyn",
+            "description": "여성대표여부"
+          }
+        },
+        "type": "object",
+        "required": [
+          "PBLANCSEQ",
+          "CREATDT",
+          "PBLANCDTLURL",
+          "PBLANCNM",
+          "POLICYCNTS",
+          "SPORTMG",
+          "SPORTCNTS",
+          "SPORTTRGET",
+          "REQSTRCEPT",
+          "SPORTINSTTNM",
+          "SPORTINSTTCD",
+          "REFRNC",
+          "UPDDT",
+          "PBLANCENDDT",
+          "PBLANCATTACH",
+          "REQSTLINKINFO",
+          "BIZTYPE",
+          "BIZTYPECD",
+          "SPORTTYPE",
+          "SPORTTYPECD",
+          "LIFECYCLDVSN",
+          "LIFECYCLDVSNCD",
+          "AREANM",
+          "AREACD",
+          "SALSAMT",
+          "SALSAMTCD",
+          "ABLBIZ",
+          "ABLBIZCD",
+          "EMPLYCNT",
+          "EMPLYCNTCD",
+          "CMPSCALE",
+          "CMPSCALECD",
+          "NEEDCRTFN",
+          "NEEDCRTFNCD",
+          "INDUTY",
+          "RPSNTAGE",
+          "REFNTNYN",
+          "FNTNYN",
+          "FMLERPSNTYN"
+        ],
+        "title": "TbInsuExtpblancInfo"
+      },
+      "TbInsuExtpblancInfoList": {
+        "properties": {
+          "page": { "type": "integer", "title": "Page" },
+          "per_page": { "type": "integer", "title": "Per Page" },
+          "total_count": { "type": "integer", "title": "Total Count" },
+          "items": {
+            "items": { "$ref": "#/components/schemas/TbInsuExtpblancInfo" },
+            "type": "array",
+            "title": "Items"
+          }
+        },
+        "type": "object",
+        "required": ["page", "per_page", "total_count", "items"],
+        "title": "TbInsuExtpblancInfoList"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": { "anyOf": [{ "type": "string" }, { "type": "integer" }] },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": { "type": "string", "title": "Message" },
+          "type": { "type": "string", "title": "Error Type" }
+        },
+        "type": "object",
+        "required": ["loc", "msg", "type"],
+        "title": "ValidationError"
+      }
+    }
+  }
+}
